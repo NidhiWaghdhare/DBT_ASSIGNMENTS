@@ -1,0 +1,161 @@
+EXERCISE-1:
+------------
+------------
+
+CREATE DATABASE dbms_exercise;
+
+use dbms_exercise
+
+CREATE THE TABLE FOR SEMP:
+==========================
+
+create table SEMP
+(
+EMPNO CHAR(4),
+EMPNAME CHAR(20),
+BASIC FLOAT(9,2),
+DEPTNO CHAR(2),
+DEPTHEAD CHAR(4)
+);
+
+CREATE THE TABLE FOR SDEPT:
+===========================
+
+create table SDEPT
+(
+DEPTNO CHAR(2),
+DEPTNAME CHAR(15)
+);
+
+INSERT THE VALUES IN TABLE SDEPT:
+=================================
+
+insert into SDEPT(DEPTNO,DEPTNAME)
+values ('10','Development');
+
+
+insert into SDEPT(DEPTNO,DEPTNAME)
+values ('20','Training');
+
+INSERT THE VALUES IN TABLE SEMP:
+================================
+
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO)
+values ('0001', 'SUNIL', '6000', '10');
+
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO)
+values ('0002', 'HIREN', '8000', '20');
+
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values ('0003', 'ALI', '4000', '10', '0001');
+
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTHEAD)
+values ('0004', 'GEORGE', '6000', '0002');
+
+CREATE THE TABLE FOR SUPPLIER:
+==============================
+
+create table SUPPLIER
+(
+`S#` varchar(10),
+Sname varchar(10),
+Status varchar(10),
+City varchar(15)
+);
+
+CREATE THE TABLE FOR PARTS:
+===========================
+
+create table PARTS
+(
+`P#` varchar(10),
+Pname varchar(10),
+Color varchar(10),
+Weight float(5,2),
+City varchar(15)
+);
+
+CREATE THE TABLE FOR PROJECTS:
+=============================
+
+create table PROJECTS
+(
+`J#` varchar(10),
+Jname varchar(10),
+City varchar(15)
+);
+
+CREATE THE TABLE FOR SUPPLIER-PARTS-PROJECTS:
+=============================================
+
+create table SUPPLIER_PARTS_PROJECTS
+(
+`S#` varchar(10),
+`P#` varchar(10),
+`J#` varchar(10),
+Qty varchar(15)
+);
+
+INSERT THE VALUES IN TABLE SUPPLIER:
+===================================
+
+insert into SUPPLIER(`S#`, Sname, Status, City)
+values ('S1','Alexa','10','London');
+
+insert into SUPPLIER(`S#`, Sname, Status, City)
+values ('S2','John','20','Paris');
+
+insert into SUPPLIER(`S#`, Sname, Status, City)
+values ('S2','Lisa','30','Athens');
+
+INSERT THE VALUES IN TABLE PARTS:
+=================================
+
+insert into PARTS(`P#`,Pname,Color,Weight,City)
+values ('P1','Block','Black','5.2','London');
+
+insert into PARTS(`P#`,Pname,Color,Weight,City)
+values ('P2','Cube','Pink','7.2','New York');
+
+insert into PARTS(`P#`,Pname,Color,Weight,City)
+values ('P3','Diamond','Blue','4.6','London');
+
+INSERT THE VALUES IN TABLE PROJECTS:
+====================================
+
+insert into PROJECTS(`J#`,Jname,City)
+values('J1','Sky','Athens');
+
+
+insert into PROJECTS(`J#`,Jname,City)
+values('J3','Saturn','London');
+
+DISPLAY ALL THE DATA FROM SUPPLIER(S) TABLE:
+===========================================
+
+select *from SUPPLIER;
+
+DISPLAY ONLY S# AND SNAME FROM THE SUPPLIER(S) TABLE:
+====================================================
+
+select `S#`,SNAME from SUPPLIER;
+
+DISPLAY THE PNAME AND COLOR FROM THE PARTS TABLE FOR THE CITY=”London”:
+=======================================================================
+
+select Pname, Color  from PARTS where CITY="London”;
+
+DISPLAY ALL THE SUPPLIERS FROM LONDON:
+======================================
+
+select  *from SUPPLIER where CITY="London";
+
+DISPLAY ALL THE SUPPLIERS FROM PARIS OR ATHENS:
+===============================================
+
+select *from SUPPLIER where CITY="Paris" OR CITY="Athens";
+
+DISPLAY ALL THE PROJECTS IN ATHENS:
+===================================
+
+select *from PROJECTS where CITY="Athens";
