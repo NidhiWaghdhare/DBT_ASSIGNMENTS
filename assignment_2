@@ -1,0 +1,34 @@
+1.WHICH FIELD OF CUSTOMERS TABLE IS THE PRIMARY KEY?
+
+=>	'CNUM' is the field of CUSTOMERS table is the PRIMARY KEY.
+	Because it's uniquely identify every row in that table.
+	
+---------------------------------------------------------------------
+	
+2.WHAT IS THE 4TH COLUMN OF CUSTOMERS TABLE?
+
+=>	'RATINNG' is the 4th column of customers table.
+
+---------------------------------------------------------------------
+
+3.WHAT IS THE ANOTHER WORD FOR ROW?FOR COLUMN?
+
+=> [i] Another word for ROW is ---->TUPLE,ENTITY,OPPORTUNITY.
+
+   [ii] Another word for COLUMN is ----->ATTRIBUTE,METHOD.
+   
+----------------------------------------------------------------------------------------------------------------------------
+   
+4.WHY ISN'T IT POSSIBLE TO SEE THE FIRST FIVE ROWS OF A TABLE?
+
+=>	*In RDBMS,table is not a file every row is a file.
+	*Rows of a table are not stored sequentially.
+	*Rows of a table are scattered (Fragmented) all over the DB server HD.
+	*When you INSERT into a table,wherever the system finds the free space in the DB server HD,it will store the row there.
+	*The reason that RDBMS does this,is to speed up the INSERT statement.
+	*When you SELECT a table,the order of rows in the output,depends on the row address.
+	*It always be in ascending order of row address.
+	*When you UPDATE a row,if the row length is incereasing,then the entire maybe moved to some other address.
+	*Later when you SELECT from the table,you will find the row at some other position in the output.
+	
+	Hence, it is not possible to view first or last "N" rows of a table.
