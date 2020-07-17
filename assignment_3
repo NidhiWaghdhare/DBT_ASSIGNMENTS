@@ -1,0 +1,12 @@
+1.DOES ANSI RECOGNIZE THE DATA TYPE DATE?
+============================================
+
+=>	Yes.
+
+----------------------------------------------------------------------
+
+2.WHICH THE SUBDIVISION OF SQL IS USED TO INSERT VALUES IN TABLE?
+=================================================================
+
+=> DML(Data Manupulation Language) is used for insert values in table.
+insert into values
