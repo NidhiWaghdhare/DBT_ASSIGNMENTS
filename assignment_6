@@ -1,0 +1,58 @@
+1.WRITE TWO DIFFERENT QUERIES THAT WOULD PRODUCE ALL ORDERS TAKEN ON OCTOBER 3rd  OR 4th,1990.:
+  ============================================================================================
+	
+			Query -1:
+			--------
+						
+						select *from orders where odate = '1990-10-03' OR odate ='1990-10-04';
+			
+			Query-2:
+			--------
+			
+		
+						select *from orders where odate BETWEEN '1990-10-03' AND '1990-10-04';
+						
+						
+-------------------------------------------------------------------------------------------------------------------------
+
+2.WRITE A QUERY THAT SELECTS ALL OF THE CUSTOMERS SERVICED BY PEEL OR MOTIKA:
+ ============================================================================
+ 
+		select * from Customers where Snum in (1001,1004);
+		
+
+--------------------------------------------------------------------------------------------------------------------------
+		
+
+3.WRITE A QUERY THAT WILL PRODUCE ALL THE CUSTOMERS WHOSE NAME BEGIN WITH A LETTER FROM ‘A’ to ‘G’:
+ =================================================================================================
+		
+		SELECT *FROM customers WHERE substr(cname,1,1) BETWEEN 'A' AND 'G';
+		
+		
+		
+--------------------------------------------------------------------------------------------------------------------------
+
+
+4.WRITE A QUERY THAT SELECTS ALL CUSTOMERS WHOSE NAMES BEGIN WITH THE  LETTER ‘C’:
+ =================================================================================
+ 
+	Query -1:
+	---------
+ 
+			select *from customers where Cname >'C' and Cname < 'D';
+		
+	Query-2:
+	--------
+	
+			select *from customers where Cname like 'C%';
+			
+			
+----------------------------------------------------------------------------------------------------------------------------
+
+5.WRITE A QUERY THAT SELECTS ALL ORDERS EXCEPT THOSE WITH ZEROS OR NULLS IN THE AMT FIELD:
+ =========================================================================================
+ 
+			select *from orders where Amt NOT IN ('NULLS','ZEROS');
+		
+
