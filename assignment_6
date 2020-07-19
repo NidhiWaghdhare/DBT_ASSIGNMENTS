@@ -27,8 +27,23 @@
 3.WRITE A QUERY THAT WILL PRODUCE ALL THE CUSTOMERS WHOSE NAME BEGIN WITH A LETTER FROM ‘A’ to ‘G’:
  =================================================================================================
 		
+	
+	Query-1:
+	-------
+	
 		SELECT *FROM customers WHERE substr(cname,1,1) BETWEEN 'A' AND 'G';
 		
+	Query-2:
+	--------
+			SELECT *
+			FROM customers
+			WHERE cname LIKE 'a%'
+			OR cname LIKE 'b%'
+			OR cname LIKE 'C%'
+			OR cname LIKE 'D%'
+			OR cname LIKE 'E%'
+			OR cname LIKE 'F%'
+			OR cname LIKE 'G%' ;
 		
 		
 --------------------------------------------------------------------------------------------------------------------------

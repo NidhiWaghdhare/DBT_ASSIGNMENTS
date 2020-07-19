@@ -1,0 +1,55 @@
+1.DIPLAY THE SUPPLIER TABLE IN THE DESCENDING ORDER OF CITY:
+ ==========================================================
+ 
+		select *from supplier order by City desc;
+		
+------------------------------------------------------------------------------------------------------------------
+
+2.DISPLAY THE PART TABLE IN THE ASCENDING ORDER OF CITY AND WITHIN THE CITY IN THE ASCENDING ORDER OF PART NAMES:
+ ================================================================================================================
+ 
+		select *from parts  order by city asc,Pname asc;
+		
+-------------------------------------------------------------------------------------------------------------------
+
+3.DISPLAY ALL THE SUPPLIER WITH A STATUS BETWEEN 10 AND 20:
+ =========================================================
+ 
+
+		select *from supplier where Status BETWEEN 10 and 20;
+		
+-------------------------------------------------------------------------------------------------------------------
+
+4.DISPLAY ALL THE PARTS AND THEIR WEIGHT, WHICH ARE NOT IN THE RANGE OF 10 AND 15:
+ ================================================================================
+ 
+		Query-1:
+		--------
+				select *from parts where weight not between 10 AND 15;
+				
+		Query-2:
+		-------
+				select *from parts where weight not in(10,15);
+				
+-------------------------------------------------------------------------------------------------------------------
+
+5.DISPLAY ALL THE PART NAMES STARTING WITH THE LETTER ‘S’:
+ =========================================================
+ 
+			select Pname LIKE 'S%' from parts;
+		
+		
+--------------------------------------------------------------------------------------------------------------------
+
+6.DISPLAY ALL THE SUPPLIERS, BELONGING TO CITIES STARTING WITH THE LETTER ‘L’:
+ ============================================================================
+ 
+		select *from Supplier where City LIKE 'L%';
+		
+--------------------------------------------------------------------------------------------------------------------
+
+7.DISPLAY ALL THE PROJECTS, WITH THE THIRD LETTER IN JNAME AS ‘N’:
+ =================================================================
+ 
+		select *from projects  where Jname LIKE '__N%';
+		
