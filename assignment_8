@@ -1,0 +1,29 @@
+1. ASSUME EACH SALESPEOPLE HAS A 12% COMMISSION. WRITE A QUERY ON THE ORDERS TABLE THAT WILL PRODUCES THE ORDERS NUMBER,
+	===================================================================================================================
+ THE SALESPEOPLE NUMBER, AND THE AMOUNT OF THE SALESPEOPLE COMMISION FOR THAT ORDER:
+ ==================================================================================
+	
+		select onum,snum,amt,(amt*12)/100 commision from orders;
+		
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+2. WRITE A QUERY ON THE CUSTOMERS TABLE THAT WILL FIND THE HIGHEST RATING IN EACH CITY. PUT THE OUTPUT IN THIS FORM:
+ ==================================================================================================================
+ 
+	select city, max(rating) from customers;
+	
+	
+------------------------------------------------------------------------------------------------------------------------------------------
+
+3.WRITE A QUERY THAT LISTS CUSTOMERS IN DESCENDING ORDERS OF RATING. OUTPUT THE RATING FIELD FIRST, FOLLOWED BY THE CUSTOMER’s NAME AND NUMBER::
+ ===============================================================================================================================================
+ 
+	select rating,cname,cnum from customers order by rating desc;
+	
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.WRITE A QUERY THAT TOTALS THE ORDERS FOR EACH DAY AND PLACES THE RESULTS IN DESCENDING ORDER:
+ =============================================================================================
+ 
+		select count(odate) "total orders",odate from orders group by odate order by "total orders" desc;
