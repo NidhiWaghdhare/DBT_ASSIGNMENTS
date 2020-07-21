@@ -1,0 +1,46 @@
+select city.name from country,city
+where countrycode=code AND continent='Africa';
+
+--------------------------------------------------------------
+
+select country.continent,floor(avg(city.population)) from country,city
+where country.code =city.countrycode
+        group by country.continent;
+		
+---------------------------------------------------------------------
+select name from students where marks >75 order by right(name,3),id asc;
+
+-------------------------------------------------------------------
+select name from city where countrycode='JPN';
+
+-------------------------------------------------------------------
+select *from city where countrycode='JPN';
+
+-------------------------------------------------------------------
+
+select sum(population) from city where countrycode='JPN';
+
+-------------------------------------------------------------------
+
+select  name from employee order by name asc;
+
+-------------------------------------------------------------------
+select name from employee where salary > 2000 and months < 10 order by employee_id;
+
+-------------------------------------------------------------------
+
+select max(population) - min(population) as difference  from city;
+
+-------------------------------------------------------------------
+
+select sum(population) from city where district='California';
+
+-------------------------------------------------------------------
+
+SELECT CONCAT(NAME,'(',SUBSTR(OCCUPATION,1,1),')') AS N
+FROM OCCUPATIONS
+ORDER BY N;
+SELECT CONCAT('There are a total of ',COUNT(OCCUPATION),' ',LOWER(OCCUPATION),'s.')
+FROM OCCUPATIONS
+GROUP BY OCCUPATION
+ORDER BY COUNT(OCCUPATION), OCCUPATION;

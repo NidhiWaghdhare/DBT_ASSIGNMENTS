@@ -1,0 +1,45 @@
+1.WRITE A QUERY THAT COUNTS ALL ORDERS FOR OCTOBER 3:
+ ====================================================
+ 
+	select count(*) from orders where odate <='1990-10-03';
+	
+-------------------------------------------------------------------------------------------------------------------
+
+2.WRITE A QUERY THAT COUNTS THE NUMBER OF DIFFERENT NON-NULL CITY VALUES IN THE CUSTOMERS TABLE:
+ ==============================================================================================
+ 
+	select count(city) from customers where city is  not null;
+		
+		
+-------------------------------------------------------------------------------------------------------------------
+
+3.WRITE A QUERY THAT SELECTS EACH CUSTOMER'S SMALLEST ORDER:
+ ==========================================================
+ 
+	select min(amt) as 'smallest orders',cnum from orders group by cnum;
+	
+
+-------------------------------------------------------------------------------------------------------------------
+
+4.WRITE A QUERY THAT SELECTS THE FIRST CUSTOMERS, IN ALPHABETICAL ORDER, WHOSE NAME BEGINS WITH G:
+ ================================================================================================
+ 
+	select *from customers where cname like 'G%' order by cname;
+	
+--------------------------------------------------------------------------------------------------------------------
+	
+5.WRITE A QUERY THAT SELECTS THE HIGHEST RATING IN EACH CITY:
+ ===========================================================
+ 
+	select max(rating) 'highest rating' from customers;
+	
+---------------------------------------------------------------------------------------------------------------------
+
+6.WRITE A QUERY THAT COUNT THE NUMBER OF SALESPEOPLE REGISTERING ORDERS FOR EACH DAY:
+ ====================================================================================
+(If a salesperson has more than one order on a given day, he or she should be counted only once.).
+
+
+	select count(distinct odate,snum) from orders;
+	
+	
