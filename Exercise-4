@@ -1,0 +1,105 @@
+Exerciese-4
+-----------
+-----------
+
+
+
+1.DISPLAY THE MINIMUM STATUS IN THE SUPPLIER TABLE:
+ =================================================
+ 
+	select min(status) "Minimum Status" from supplier;	
+	
+-------------------------------------------------------------------------------------------------------------------------------
+
+2.DISPLAY THE MAXIMUM WEIGHT IN THE PARTS TABLE:
+ ===============================================
+ 
+	select max(weight) "Maximum Weight" from parts;
+	
+------------------------------------------------------------------------------------------------------------------------------
+
+3.DISPLAY THE AVERAGE WEIGHT OF THE PARTS :
+ =========================================
+ 
+	select avg(weight) "Average Weight" from parts;
+	
+	
+------------------------------------------------------------------------------------------------------------------------------
+
+4.DISPLAY THE TOTAL QUANTITY SOLD FOR PART ‘P1’:
+ ==============================================
+  
+	select sum(Qty) "Total Quantity" from supplier_parts_projects where `P#` ='P1';
+	
+-----------------------------------------------------------------------------------------------------------------------------
+
+5.DISPLAY THE TOTAL QUANTITY SOLD FOR EACH PART:
+ ==============================================
+ 
+	select sum(Qty) "Total Quantity" from supplier_parts_projects;
+	
+	
+-----------------------------------------------------------------------------------------------------------------------------
+
+6.DISPLAY THE AVERAGE QUANTITY SOLD FOR EACH PART:
+ ================================================
+ 
+	select avg(Qty)  "Total Average" from  supplier_parts_projects;
+	
+-----------------------------------------------------------------------------------------------------------------------------
+
+7.DISPLAY THE MAXIMUM QUANTITY SOLD FOR EACH PART, PROVIDED THE MAXIMUM QUANTITY IS GREATER THAN 800:
+ ===================================================================================================
+ 
+	select max(Qty) "Max Quantity" from supplier_parts_projects where Qty > 800 group by Qty;
+	
+-----------------------------------------------------------------------------------------------------------------------------
+
+8. DISPLAY THE STATUS AND THE COUNT OF SUPPLIER WITH THAT STATUS:
+ ===============================================================
+ 
+	select status, count(status) "Status" from supplier;
+	
+-----------------------------------------------------------------------------------------------------------------------------
+
+9.DISPLAY THE COUNT OF PROJECTS GOING ON IN DIFFERENT CITIES:
+ ===========================================================
+ 
+		select count(distinct city) "Count Of Projects" from projects;
+		
+-----------------------------------------------------------------------------------------------------------------------------
+
+10.WHAT IS THE DIFFERENCE BETWEEN COUNT(Status) and COUNT(*) ?
+ =============================================================
+ 
+ COUNT(Status)
+ ------------:
+ 
+	COUNT(Status) evaluates the expression for each row in a set and returns the number of rows having a non-null values.
+	
+ COUNT(*):
+ --------
+ 
+		COUNT(*) counts the number of items in a set. It includes NULL and duplicate values.
+		It returns total number of rows in the table.
+		
+		
+----------------------------------------------------------------------------------------------------------------------------
+
+11.DISPLAY THE STATUS AND THE COUNT OF SUPPLIER WITH THAT STATUS IN THE FOLLOWING FORMAT AS SHOWN BELOW:
+ ======================================================================================================
+
+					Status  Count
+					
+						Ten  1
+					 Twenty  2
+					Thirty   3
+					
+					
+	select case 
+	when status = 10 then 'Ten'
+	when status = 20 then 'Twenty'
+	when status = 30 then 'Thirty'
+	end as Status,count(`S#`) "Count"
+	from group by Status;
+	

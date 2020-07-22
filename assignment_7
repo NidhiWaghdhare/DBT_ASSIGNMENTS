@@ -40,6 +40,6 @@
 (If a salesperson has more than one order on a given day, he or she should be counted only once.).
 
 
-	select count(distinct odate,snum) from orders;
+	select count(distinct odate,snum) from orders group by odate;
 	
 	

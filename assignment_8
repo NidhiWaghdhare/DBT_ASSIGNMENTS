@@ -26,4 +26,4 @@
 4.WRITE A QUERY THAT TOTALS THE ORDERS FOR EACH DAY AND PLACES THE RESULTS IN DESCENDING ORDER:
  =============================================================================================
  
-		select count(odate) "total orders",odate from orders group by odate order by "total orders" desc;
+		select sum(odate) "total orders",odate from orders group by odate order by "total orders" desc;
