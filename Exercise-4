@@ -36,7 +36,7 @@ Exerciese-4
 5.DISPLAY THE TOTAL QUANTITY SOLD FOR EACH PART:
  ==============================================
  
-	select sum(Qty) "Total Quantity" from supplier_parts_projects;
+	select Qty,sum(Qty) "Total Quantity" from supplier_parts_projects group by Qty;
 	
 	
 -----------------------------------------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ Exerciese-4
 6.DISPLAY THE AVERAGE QUANTITY SOLD FOR EACH PART:
  ================================================
  
-	select avg(Qty)  "Total Average" from  supplier_parts_projects;
+	select Qty, avg(Qty)  "Total Average" from  supplier_parts_projects group by Qty;
 	
 -----------------------------------------------------------------------------------------------------------------------------
 

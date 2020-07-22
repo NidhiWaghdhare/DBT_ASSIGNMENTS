@@ -31,7 +31,7 @@
 5.WRITE A QUERY THAT SELECTS THE HIGHEST RATING IN EACH CITY:
  ===========================================================
  
-	select max(rating) 'highest rating' from customers;
+	select max(rating),city 'highest rating' from customers group by city;
 	
 ---------------------------------------------------------------------------------------------------------------------
 
