@@ -1,0 +1,27 @@
+1.WRITE A QUERY THAT USES A SUBQUERY TO OBTAIN ALL ORDERS FOR THE CUSTOMER NAMED CISNEROS. ASSUME YOU DO NOT KNOW HIS CUSTOMERS NUMBER (cnum):
+ ============================================================================================================================================
+ 
+		select onum "ALL ORDERS",cnum from orders
+		where cnum = (select cnum from customers
+		where cname = 'cisneros');
+		
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.WRITE A QUERY THAT PRODUCES THE NAMES AND RATINGS OF ALL CUSTOMERS WHO HAVE ABOVE-AVERAGE ORDERS:
+ =================================================================================================
+ 
+	select cname,rating from customers 
+	where cnum IN
+	(select cnum from orders
+		where amt > (select  avg(amt) from orders));
+		
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.WRITE A QUERY THAT SELECTS THE TOTAL AMOUNT IN ORDERS FOR EACH SALESPEOPLE FOR WHOM THIS TOTAL IS GREATER THAN THE AMOUNT OF THE LARGEST ORDER IN THE TABLE:
+ ============================================================================================================================================================
+ 
+	select sum(amt)from orders 
+	group by snum 
+	having sum(amt) >
+	(select max(amt) from orders);
