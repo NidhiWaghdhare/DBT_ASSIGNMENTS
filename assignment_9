@@ -1,0 +1,36 @@
+1.WRITE A QUERY THAT LISTS EACH ORDER NUMBER FOLLOWED BY THE NAME OF THE CUSTOMER WHO MADE THE ORDER:
+ ===================================================================================================
+		select onum ,cname from orders ,customers
+		where orders.cnum = customers.cnum
+		group by onum
+		
+---------------------------------------------------------------------------------------------------------------------------
+
+2.WRITE A QUERY THAT GIVES THE NAMES OF BOTH THE SALESPEOPLE AND THE CUSTOMERS FOR EACH ORDER ALONG WITH THE ORDER NUMBER:
+ ========================================================================================================================
+ 
+		select onum,sname,cname from orders,customers,sales_people 
+		where sales_people.snum = orders.snum AND customers.snum = orders.snum
+		group by onum;
+		
+-----------------------------------------------------------------------------------------------------------------------------
+
+3.WRITE A QUERY THAT PRODUCES ALL CUSTOMERS SERVICED BY SALESPEOPLE WITH A COMMISION ABOVE 12%.
+ =============================================================================================
+ OUTPUT THE CUSTOMER’s NAME, THE SALESPEOPLE’s NAME, AND THE SALESPEOPLE’s RATE OF COMMISION:
+ ===========================================================================================
+ 
+			
+		select cname,sales_people.sname ,comm*100 "Rate of Comission" from customers,sales_people
+		where customers.snum = sales_people.snum AND comm >.12;
+		
+		
+------------------------------------------------------------------------------------------------------------------------------
+
+4.WRITE A QUERY THAT CALCULATES THE AMOUNT OF THE SALESPEOPLE’s COMMISION ON EACH ORDER BY A CUSTOMER WITH A RATING ABOVE 100:
+ ============================================================================================================================
+ 
+		select amt,comm from orders,customers, sales_people
+		where orders.snum = sales_people.snum AND orders.snum = customers.snum AND rating > 100;
+	
+		

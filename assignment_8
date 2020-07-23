@@ -10,7 +10,7 @@
 2. WRITE A QUERY ON THE CUSTOMERS TABLE THAT WILL FIND THE HIGHEST RATING IN EACH CITY. PUT THE OUTPUT IN THIS FORM:
  ==================================================================================================================
  
-	select city, max(rating) from customers;
+	select  max(rating) from customers group by city;
 	
 	
 ------------------------------------------------------------------------------------------------------------------------------------------
