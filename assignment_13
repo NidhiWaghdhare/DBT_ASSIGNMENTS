@@ -1,0 +1,25 @@
+1.CREATE A UNION OF TWO QUERIES THAT SHOWS THE NAMES, CITIES, AND RATINGS OF ALL CUSTOMERS
+ =========================================================================================
+ THOSE WITH RATING OF 200 OR GREATER WILL ALSO HAVE THE WORDS “High Rating”, WHILE THE OTHERS WILL HAVE THE WORDS “Low Rating”:
+ =============================================================================================================================
+ 
+		select cname,city,"High Rating"  rating from customers where rating >200
+								union
+		select cname,city, "Low Rating" rating  from customers where rating <= 200;
+		
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.WRITE A COMMAND THAT PRODUCES THE NAME AND NUMBER OF EACH SALES_PEOPLE AND EACH CUSTOMER WITH MORE THAN ONE CURRENT ORDER PUT THE RESULTS IN ALPHABETICAL ORDER:
+ ================================================================================================================================================================
+ 
+		select sname,snum,cname from sales_people join customers using(snum) 
+		where snum IN(select snum from customers group by snum having count(snum)>1) order by sname,cname;
+		
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.Form a union of three queries. Have the first select the snums of all salespeople in San Jose; the second, the cnums of all customers in San Jose;
+ and the third the onums of all orders on October 3. Retain duplicates between the last two queries but eliminate any redundancies between either of them
+ and the first.
+(Note: in the sample tables as given, there would be no such redundancy. This is besides the point.)
+					
+	SELECT snum FROM sales_people WHERE city='san_ jose' UNION SELECT DISTINCT snum FROM orders WHERE snum IN (SELECT snum FROM orders WHERE odate LIKE '%-03-10');
