@@ -76,7 +76,11 @@ Exercise-3
 9.DISPLAY THE SUPPLIER NAME AND THE STATUS (as Ten, Twenty, Thirty, etc.):
  =========================================================================
  
+<<<<<<< HEAD
   select sname,case when status =10 then 'Ten'
+=======
+    select sname,case when status =10 then 'Ten'
+>>>>>>> 496a08fc4a0b953b95722fda89c11b0d7807d458
 		when status=20 then 'Twenty'
 		when status=30 then 'Thirty'
 		when status=40 then 'Forty'
