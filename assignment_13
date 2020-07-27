@@ -30,7 +30,6 @@
  =======================================================================================================================================================
  and the first.
  =============
->>>>>>> 26b025c5b9d873370735ad2f3fde970917a168d4
 (Note: in the sample tables as given, there would be no such redundancy. This is besides the point.)
 					
 	SELECT snum FROM sales_people WHERE city='san_ jose' UNION SELECT DISTINCT snum FROM orders WHERE snum IN (SELECT snum FROM orders WHERE odate LIKE '%-03-10');
