@@ -18,8 +18,11 @@
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 3.Form a union of three queries. Have the first select the snums of all salespeople in San Jose; the second, the cnums of all customers in San Jose;
+  ===================================================================================================================================================
  and the third the onums of all orders on October 3. Retain duplicates between the last two queries but eliminate any redundancies between either of them
+==========================================================================================================================================================
  and the first.
+ ==============
 (Note: in the sample tables as given, there would be no such redundancy. This is besides the point.)
 					
 	SELECT snum FROM sales_people WHERE city='san_ jose' UNION SELECT DISTINCT snum FROM orders WHERE snum IN (SELECT snum FROM orders WHERE odate LIKE '%-03-10');

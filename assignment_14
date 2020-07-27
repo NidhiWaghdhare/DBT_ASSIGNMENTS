@@ -1,0 +1,26 @@
+1.WRITE A COMMAND THAT PUTS THE FOLLOWING VALUES, IN THEIR GIVEN ORDER, INTO THE SALESPEOPLE TABLE: CITY – SAN JOSE, NAME – BLANCO, COMM – NULL, SNUM – 1100:
+ ============================================================================================================================================================
+ 
+		insert into sales_people(city,sname,comm,snum) values ('San Jose','Blanco',NULL,'1100');
+		
+		
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.WRITE A COMMAND THAT REMOVES ALL ORDERS FROM CUSTOMER CLEMENS FROM THE ORDERS TABLE:
+ ====================================================================================
+ 
+	delete from orders where cnum IN(select cnum from customers where cname ='Clemens');
+	
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.WRITE A COMMAND THAT INCREASES THE RATING OF ALL CUSTOMERS IN ROME BY 100:
+ ==========================================================================
+	
+	update customers set rating = rating + 100 where city ='Rome';
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.SALES_PEOPLE SERRES HAS LEFT THE COMPANY. ASSIGN HER CUSTOMERS TO MOTIKA:
+ =========================================================================
+ 
+		update customers set snum = (select snum from sales_people where sname ='SERRES') where snum = (select snum from sales_people where sname = 'Motika');
