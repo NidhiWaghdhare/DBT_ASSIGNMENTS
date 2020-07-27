@@ -1,0 +1,22 @@
+1.ASSUME THERE IS A TABLE CALLED MULTICUST, WITH ALL OF THE SAME COLUMN DEFINATIONS AS SALES_PEOPLE.
+ ==================================================================================================
+ WRITE A COMMAND THAT INSERTS ALL SALES_PEOPLE WITH MORE THAN ONE CUSTOMERS INTO THIS TABLE:
+ ==========================================================================================
+ 
+		create table multicust as select *from sales_people where snum in (select snum from customers group by snum having count(snum) >1);
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.WRITE A COMMAND THAT DELETES ALL CUSTOMERS WITH NO CURRENT ORDERS:
+ ==================================================================
+ 
+		insert into customers (cnum,cname,city,rating,snum) values (2009,'Neon','Brazil','500','1005');
+		
+		delete customers where cnum=ANY (select cnum from orders where cnum NOT IN (select cnum from customers));
+		
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.WRITE A COMMAND THAT INCREASES BY TWENTY PERCENT THE COMMISSIONS OF ALL SALES_PEOPLE WITH TOTAL ORDERS ABOVE RS. 3,000:
+ ========================================================================================================================
+ 
+	update sales_people set comm=comm*1.20 where snum in (select snum  from orders where amt > 3000); 	
