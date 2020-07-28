@@ -1,0 +1,25 @@
+1.WRITE A COMMAND THAT WILL ENABLE A USERS TO PULL ORDERS GROUPED BY DATE OUT OF THE ORDERS TABLE QUICKLY:
+ ========================================================================================================
+ 
+	create index i_order ON orders(odate);
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+2.IF THE ORDERS TABLE HAS ALREADY BEEN CREATED, HOW CAN YOU FORCES THE ONUM FIELD TO BE UNIQUE (assume all current values are unique)?
+ ====================================================================================================================================
+ 
+	alter table orders add constraint U_o_Onum unique (Onum);
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.CREATE AN INDEX THAT WOULD PERMIT EACH SALES_PEOPLE TO RETRIVE HIS OR HER ORDERS GROUPED BY DATE QUICKLY:
+ =========================================================================================================
+ 
+	create index i_date on orders(odate);
+	
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.LET US ASSUME THAT EACH SALES_PEOPLE IS TO HAVE ONLY ONE CUSTOMER OF A GIVEN RATING, AND THAT THIS IS CURRENTLY THE CASE. ENTER A COMMAND THAT ENFORCES IT:
+ ===========================================================================================================================================================
+ 
+	alter table customers add Primary key(rating);
