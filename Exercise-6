@@ -1,0 +1,73 @@
+EXERCISE-6:
+-----------
+-----------
+
+1.Display all the Suppliers with the same Status as the supplier, ‘CLARK:
+ =========================================================================
+ 
+	select sname , status from supplier
+	where status = (select status from supplier where sname = 'CLARK');
+	
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.Display all the Employees in the same department as the employee ‘MILLER’:
+ ==========================================================================
+ 
+	select * from semp
+	where deptno = ( select deptno from semp where empname = 'Miller');
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.Display all the Parts which have more Weight than all the Red parts:
+ ====================================================================
+ 
+	select *from parts where weight > (select weight from parts where color ='red');
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.Display all the Projects going on in the same city as the project ‘TAPE’:
+ =========================================================================
+ 
+	select * from Projects
+	where city = (select city from projects where jname = 'TAPE');
+	
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.Display all the Parts with Weight less than all the Green parts:
+ =================================================================
+ 
+select *from parts where weight < (select weight from parts where color ='Green'); 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.Display the name of the Supplier who has sold the maximum Quantity (in one sale):
+ ================================================================================
+ 
+	select supplier.sname from supplier,supplier_parts_projects
+	where supplier.`s#`=supplier_parts_projects.`s#` and qty = (select max(qty) from supplier_parts_projects);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7.Display the name of the Employee with the minimum Salary:
+ ==========================================================
+ 
+	select empname from semp where basic = (select min(basic) from semp);
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8.Display the name of the Supplier who has sold the maximum overall Quantity (sum of Sales):
+  =========================================================================================
+  
+  select supplier.sname , sum(supplier_parts_projects.qty) from supplier, supplier_parts_projects
+ 	where supplier_parts_projects.`s#`=supplier_parts_projects.`s#` 
+	group by sname;
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9.Display the name of the Department with the maximum number of Employees:
+  =======================================================================
+  
+  select  sdept.deptname, count(semp.deptno) from semp, sdept 
+	where semp.deptno = sdept.deptno 
+	group by semp.deptno 
+	order by employees desc limit 1;
