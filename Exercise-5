@@ -1,0 +1,86 @@
+EXERCISE - 5
+------------
+------------
+
+1. DISPLAY THE SUPPLIER NAME AND THE QUANTITY SOLD:
+  ================================================
+  
+  select sname,qty from supplier,supplier_parts_projects where supplier.`S#` = supplier_parts_projects.`S#`;
+  
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+2.DISPLAY THE PART NAME AND QUANTITY SOLD:
+  ========================================
+  
+   select pname,qty from supplier_parts_projects,parts where parts.`P#` = supplier_parts_projects.`P#`;
+   
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+3. DISPLAY THE PROJECT NAME AND QUANTITY SOLD:
+  ===========================================
+  
+	select Jname,Qty from supplier_parts_projects,projects where projects.`J#`=supplier_parts_projects.`J#`;
+	
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+4.DISPLAY THE SUPPLIER NAME, PART NAME, PROJECT NAME AND QUANTITY SOLD:
+  =====================================================================
+  
+  select Sname,Pname,Jname,Qty from supplier_parts_projects,supplier,projects,parts 
+	where supplier.`S#` = supplier_parts_projects.`S#` AND parts.`P#` = supplier_parts_projects.`P#` AND projects.`J#`=supplier_parts_projects.`J#`;
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.DISPLAY THE SUPPLIER NAME, SUPPLYING PARTS TO A PROJECT IN THE SAME CITY:
+ ==========================================================================
+
+	select sname,pname from supplier,parts,Projects
+	where supplier.city = projects.city group by sname;
+	
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+6.DISPLAY THE PARTS NAME THAT IS ‘Red’ IS COLOR, AND THE QUANTITY SOLD:
+  ====================================================================
+  
+	select pname,qty from parts,supplier_parts_projects
+	where color='red' and parts.`P#`=supplier_parts_projects.`P#`;
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7.DISPLAY ALL THE QUANTITY SOLD BY SUPPLIERS WITH THE STATUS = 20:
+ ================================================================
+	
+	select qty,status from supplier_parts_projects,supplier 
+	where status = 20 and supplier.`S#`= supplier_parts_projects.`S#`;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8.DISPLAY ALL THE PARTS AND QUANTITY WITH A WEIGHT > 14:
+  ======================================================
+  
+	select qty ,weight from supplier_parts_projects,parts
+	where weight > 14 and supplier_parts_projects.`P#`=parts.`P#`;
+	
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9.DISPLAY ALL THE PROJECTS NAMES AND CITY, WHICH HAS BOUGHT MORE THAN 500 PARTS:
+ ===============================================================================
+ 
+	select jname,city from projects,supplier_parts_projects
+	where qty >500 and projects.`J#`=supplier_parts_projects.`J#`;
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+10.DISPLAY ALL THE PART NAMES AND QUANTITY SOLD THAT HAVE A WEIGHT LESS THAN 15:
+  ============================================================================
+  
+	select pname ,qty from supplier_parts_projects ,parts 
+	where weight < 15 and supplier_parts_projects.`P#`=parts.`P#`;
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+11.DISPLAY ALL THE EMPLOYEES NAMES AND THE NAME OF THEIR MANAGERS:
+  ================================================================
+  
+	select  b.ename as employee ,a.ename as manager from emp a , emp b 
+	where b.mgr = a.empno ;
